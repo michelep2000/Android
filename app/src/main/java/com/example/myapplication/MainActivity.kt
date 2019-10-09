@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         btnClickMe.setOnClickListener {
 
             count++
-            txtHello.text = "U-Tad"
+            txtHello.text = "My U-Tad"
             Toast.makeText(this, message+ count.toString()+ " times",Toast.LENGTH_SHORT).show()
             counter.text = count.toString()
         }
