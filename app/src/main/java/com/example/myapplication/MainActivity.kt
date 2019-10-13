@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         var count = 0;
 
         btnClickMe.setOnClickListener {
-
             txtHello.text = "U-Tad"
             incrementText(count++, counter)
         }
