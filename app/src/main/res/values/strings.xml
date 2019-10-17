@@ -14,9 +14,14 @@
     <string name="titleDescription">Description</string>
     <string name="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="movieTitle">movie title</string>
-    <string name="movieYear">movie year</string>
+    <string name="movieYear">Year:</string>
     <string name="genre">Genre:</string>
     <string name="movieYearValue">1996</string>
     <string name="txtGenreValue">Thriller</string>
     <string name="movieImg">movie img</string>
+    <string name="movieDescription">Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi turpis, sed nibh litora nisi proin eu curabitur quis, cum congue dis sagittis elementum morbi magna natoque. Ultricies dui pellentesque blandit auctor semper quisque fames maecenas porttitor dignissim senectus erat, justo ligula mus montes dictumst nostra primis eros sociis ornare habitasse eget, nullam dis nibh mi facilisi tellus nam mauris tincidunt per condimentum. Felis vitae semper luctus rhoncus etiam dapibus risus, curae habitant fames laoreet cursus fringilla morbi, eu nascetur facilisi scelerisque donec bibendum.</string>
+    <string name="ImgAdd">add</string>
+    <string name="imgFavorites">favorites</string>
+    <string name="imgShare">share</string>
+    <string name="btnMovie">Movie</string>
 </resources>

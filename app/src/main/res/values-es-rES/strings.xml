@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ImgAdd">add</string>
+    <string name="imgFavorites">favorites</string>
+    <string name="imgShare">share</string>
+    <string name="btnMovie">Movie</string>
+</resources>
