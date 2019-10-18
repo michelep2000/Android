@@ -37,10 +37,17 @@
         android:text="Click me" />
 
     <Button
-        android:id="@+id/profile_button"
+        android:id="@+id/btnProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/profile_activity" />
+
+    <Button
+        android:id="@+id/btnMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/btnMovie" />
 
 </LinearLayout>
