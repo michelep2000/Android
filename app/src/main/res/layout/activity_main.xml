@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <TextView
         android:id="@+id/counter"
@@ -49,5 +49,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/btnMovie" />
+
+    <Button
+        android:id="@+id/btnMovieList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Movie List" />
 
 </LinearLayout>

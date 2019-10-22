@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/movieListImg"
+        android:layout_width="102dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/movieImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[10]" />
+
+    <TextView
+        android:id="@+id/movieListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/movieTitle"
+        app:layout_constraintStart_toEndOf="@+id/movieListImg"
+        app:layout_constraintTop_toTopOf="@+id/movieListImg" />
+
+    <TextView
+        android:id="@+id/movieListOriginalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/originalMovieTitle"
+        app:layout_constraintStart_toStartOf="@+id/movieListTitle"
+        app:layout_constraintTop_toBottomOf="@+id/movieListTitle" />
+
+    <TextView
+        android:id="@+id/movieListReleaseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/releaseMovieDate"
+        app:layout_constraintStart_toStartOf="@+id/movieListOriginalTitle"
+        app:layout_constraintTop_toBottomOf="@+id/movieListOriginalTitle" />
+
+    <TextView
+        android:id="@+id/movieListReleaseDateValue"
+        style="@style/profile_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/releaseMovieDateValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/movieListReleaseDate"
+        app:layout_constraintTop_toTopOf="@+id/movieListReleaseDate" />
+
+    <TextView
+        android:id="@+id/movieListRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/movieRate"
+        app:layout_constraintEnd_toEndOf="@+id/movieListReleaseDateValue"
+        app:layout_constraintTop_toTopOf="@+id/movieListTitle"
+        style="@style/rate_style" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

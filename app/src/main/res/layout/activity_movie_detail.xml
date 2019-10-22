@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#40000000"
-        tools:context="com.example.myapplication.MovieDetailActivity">
+        tools:context="com.example.myapplication.ui.MovieDetailActivity">
 
         <ImageView
             android:id="@+id/movieImg"
