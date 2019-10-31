@@ -12,20 +12,29 @@ class MoviesAdapter (val movieList: List<Movie2>) : RecyclerView.Adapter<MovieLi
     override fun getItemCount(): Int = movieList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieListViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-        return MovieListViewHolder(view as ConstraintLayout)
+       return MovieListViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: MovieListViewHolder, position: Int) {
         val movieItem = movieList[position]
-        with(holder){
-            Picasso.get().load(movieItem.img).into(view.movieListImg)
-            view.movieListTitle.text = movieItem.title
-            view.movieListOriginalTitle.text = movieItem.originalTitle
-            view.movieListReleaseDateValue.text = movieItem.releaseDate
-            view.movieListRate.text = movieItem.rate
-        }
+        holder.bind(movieItem)
     }
 }
 
-class MovieListViewHolder(val view: ConstraintLayout): RecyclerView.ViewHolder(view)
+class MovieListViewHolder private constructor(val view: ConstraintLayout): RecyclerView.ViewHolder(view){
+    companion object{
+        fun from(parent: ViewGroup): MovieListViewHolder{
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+            return MovieListViewHolder(view as ConstraintLayout)
+        }
+    }
+
+    fun bind(movieItem: Movie2){
+        Picasso.get().load(movieItem.img).into(view.movieListImg)
+        view.movieListTitle.text = movieItem.title
+        view.movieListOriginalTitle.text = movieItem.originalTitle
+        view.movieListReleaseDateValue.text = movieItem.releaseDate
+        view.movieListRate.text = movieItem.rate
+    }
+
+}

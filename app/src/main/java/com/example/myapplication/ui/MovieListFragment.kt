@@ -1,25 +1,33 @@
 package com.example.myapplication.ui
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.model.Movie2
 
-class MovieListActivity : AppCompatActivity() {
+/**
+ * A simple [Fragment] subclass.
+ */
+class MovieListFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: MoviesAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var myMovieList : List<Movie2>
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie_list)
-
-
+        val view = inflater.inflate(R.layout.fragment_movie_list, container, false)
         myMovieList = listOf(
             Movie2(
                 img = "https://vignette.wikia.nocookie.net/doblaje/images/9/99/Zombieland_2_Poster_La.png/revision/latest?cb=20190909163524&path-prefix=es",
@@ -66,14 +74,16 @@ class MovieListActivity : AppCompatActivity() {
             )
 
         )
-        viewManager = LinearLayoutManager(this)
+        viewManager = LinearLayoutManager(this.context)
         viewAdapter = MoviesAdapter(myMovieList)
 
-        recyclerView = findViewById<RecyclerView>(R.id.myRecyclerView).apply {
+        recyclerView = view.findViewById<RecyclerView>(R.id.myRecyclerView).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
         }
-
+        return view
     }
+
+
 }

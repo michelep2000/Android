@@ -25,7 +25,10 @@
     <string name="imgShare">share</string>
     <string name="btnMovie">Movie</string>
     <string name="originalMovieTitle">original title</string>
-    <string name="releaseMovieDate" >Release Date</string>
+    <string name="releaseMovieDate">Release Date</string>
     <string name="movieRate">Rate</string>
     <string name="releaseMovieDateValue">release date value</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
