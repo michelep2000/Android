@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/profile_fragment">
+    app:startDestination="@id/find_fragment">
     <fragment
         android:id="@+id/movieList_fragment"
         android:name="com.example.myapplication.ui.MovieListFragment"
@@ -14,8 +14,8 @@
         android:name="com.example.myapplication.ui.ProfileFragment"
         android:label="ProfileFragment" />
     <fragment
-        android:id="@+id/finder_fragment"
-        android:name="com.example.myapplication.ui.FinderFragment"
+        android:id="@+id/find_fragment"
+        android:name="com.example.myapplication.ui.movieSearch.FinderFragment"
         android:label="Find"
         tools:layout="@layout/fragment_finder" />
 </navigation>
