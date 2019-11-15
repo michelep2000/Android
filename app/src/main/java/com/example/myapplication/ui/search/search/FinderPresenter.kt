@@ -1,22 +1,24 @@
 package com.example.myapplication.ui.search.search
 
-import com.example.myapplication.data.repository.remote.RetrofitFactory
+import com.example.myapplication.data.repository.remote.RemoteRepository
 import com.example.myapplication.model.Movie
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class FinderPresenter(val view: FinderView) {
+class FinderPresenter(
+    private val view: FinderView,
+    private val remoteRepository: RemoteRepository
+) {
 
     fun onSearch(term: String) {
-        val service = RetrofitFactory.getMovieApi()
         CoroutineScope(Dispatchers.IO).launch {
 
-            val response = service.searchMovies(term)
+            val response = remoteRepository.searchMovies(term)
             withContext(Dispatchers.Main) {
-                if (response.isSuccessful) {
-                    view.addMovies(response.body()!!.results)
+                if (!response.results.isEmpty()) {
+                    view.addMovies(response.results)
                 }
             }
         }
