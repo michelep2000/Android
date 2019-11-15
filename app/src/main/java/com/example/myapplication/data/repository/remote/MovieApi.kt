@@ -1,5 +1,7 @@
-package com.example.myapplication.model
+package com.example.myapplication.data.repository.remote
 
+import com.example.myapplication.model.MovieDetail
+import com.example.myapplication.model.Result
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory

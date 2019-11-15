@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.movieSearch.FinderDetailActivity"></activity>
+        <activity android:name="com.example.myapplication.ui.search.detail.FinderDetailActivity"></activity>
         <activity android:name=".ui.MovieListActivity" />
         <activity android:name=".ui.MovieDetailActivity" />
         <activity android:name=".ui.ProfileActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
