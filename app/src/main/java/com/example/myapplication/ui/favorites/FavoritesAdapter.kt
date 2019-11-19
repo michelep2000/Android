@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.search.search
+package com.example.myapplication.ui.favorites
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,44 +10,38 @@ import com.example.myapplication.model.Movie
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MoviesAdapter(private val listener: (Movie) -> Unit) :
-    RecyclerView.Adapter<MovieListViewHolder>() {
+class FavoritesAdapter(private val listener: (Favorites) -> Unit) :
+    RecyclerView.Adapter<FavoriteListViewHolder>() {
 
-    private var movies = listOf<Movie>()
     private var favorites = listOf<Favorites>()
-
-    fun addMovies(newMovies: List<Movie>) {
-        this.movies = newMovies
-        notifyDataSetChanged()
-    }
 
     fun addFavorites(favorites: List<Favorites>) {
         this.favorites = favorites
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieListViewHolder {
-        return MovieListViewHolder.from(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteListViewHolder {
+        return FavoriteListViewHolder.from(parent)
     }
 
-    override fun getItemCount(): Int = movies.size
+    override fun getItemCount(): Int = favorites.size
 
-    override fun onBindViewHolder(holder: MovieListViewHolder, position: Int) {
-        holder.bind(movies[position], listener)
+    override fun onBindViewHolder(holder: FavoriteListViewHolder, position: Int) {
+        holder.bind(favorites[position], listener)
     }
 }
 
-class MovieListViewHolder private constructor(val view: ConstraintLayout) :
+class FavoriteListViewHolder private constructor(val view: ConstraintLayout) :
     RecyclerView.ViewHolder(view) {
     companion object {
-        fun from(parent: ViewGroup): MovieListViewHolder {
+        fun from(parent: ViewGroup): FavoriteListViewHolder {
             val view =
                 LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
-            return MovieListViewHolder(view as ConstraintLayout)
+            return FavoriteListViewHolder(view as ConstraintLayout)
         }
     }
 
-    fun bind(movieItem: Movie, listener: (Movie) -> Unit) {
+    fun bind(movieItem: Favorites, listener: (Favorites) -> Unit) {
 
         Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movieItem.poster_path)
             .into(view.movieListImg)

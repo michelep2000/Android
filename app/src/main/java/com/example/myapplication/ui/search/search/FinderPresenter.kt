@@ -13,6 +13,7 @@ class FinderPresenter(
 ) {
 
     fun onSearch(term: String) {
+        if(term.isEmpty()) return
         CoroutineScope(Dispatchers.IO).launch {
 
             val response = remoteRepository.searchMovies(term)

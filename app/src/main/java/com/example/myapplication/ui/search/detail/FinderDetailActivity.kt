@@ -3,6 +3,7 @@ package com.example.myapplication.ui.search.detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.myapplication.R
+import com.example.myapplication.data.repository.local.*
 import com.example.myapplication.data.repository.remote.RemoteRepository
 import com.example.myapplication.data.repository.remote.RetrofitFactory
 import com.example.myapplication.data.repository.remote.RetrofitRemoteRepository
@@ -20,10 +21,17 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
 
         val remoteRepository: RemoteRepository =
             RetrofitRemoteRepository(RetrofitFactory.getMovieApi())
-        val presenter = FinderDetailPresenter(this, remoteRepository)
+        val localRepository: LocalRepository = FavoriteMoviesLocalRepository(FavoritesFactory.get(this))
+        val presenter = FinderDetailPresenter(this, remoteRepository, localRepository)
 
         val id = intent.extras?.getInt("id")
         presenter.onLoadDetail(id)
+
+        btnFav.setOnClickListener {
+            presenter.onFavoritesClicked(id)
+        }
+
+
     }
 
     override fun setViewValues(general: MovieDetail, cast_crew: MovieDetail) {
@@ -38,6 +46,10 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
             "${cast_crew.cast[0].name},${cast_crew.cast[1].name},${cast_crew.cast[2].name}"
         txtDirectorValue.text = cast_crew.crew.filter { it.job == "Director" }.map { it.name }
             .joinToString(separator = ", ")
+    }
+
+    override fun setFavorite() {
+        btnFav.setImageResource(R.drawable.star_clicked)
     }
 
 }

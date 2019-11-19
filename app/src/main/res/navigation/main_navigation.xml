@@ -6,9 +6,9 @@
     app:startDestination="@id/find_fragment">
     <fragment
         android:id="@+id/movieList_fragment"
-        android:name="com.example.myapplication.ui.favorites.MovieListFragment"
+        android:name="com.example.myapplication.ui.favorites.FavoritesFragment"
         android:label="Favorites"
-        tools:layout="@layout/fragment_movie_list" />
+        tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/profile_fragment"
         android:name="com.example.myapplication.ui.profile.ProfileFragment"

@@ -1,5 +1,6 @@
 package com.example.myapplication.data.repository.remote
 
+import com.example.myapplication.data.repository.local.Favorites
 import com.example.myapplication.model.MovieDetail
 import com.example.myapplication.model.Result
 import retrofit2.Response
@@ -16,6 +17,9 @@ interface MovieApi {
 
    @GET("movie/{id}?api_key=012347d64af54be3adf8138a1dbefd02")
     suspend fun getMovieDetail(@Path("id") movieId: Int?): Response<MovieDetail>
+
+    @GET("movie/{id}?api_key=012347d64af54be3adf8138a1dbefd02")
+    suspend fun getFavorite(@Path("id") movieId: Int?): Response<Favorites>
 
     @GET("movie/{id}/credits?api_key=012347d64af54be3adf8138a1dbefd02")
     suspend fun getMovieCastAndCrew(@Path("id") movieId: Int?): Response<MovieDetail>

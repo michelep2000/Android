@@ -40,7 +40,7 @@ class FinderFragment : Fragment(), FinderView {
             presenter.onMovieDetailClicked(it.id)
         }
 
-        view.finderRecyclerView.adapter = viewAdapter
+        view.favoritesRecyclerView.adapter = viewAdapter
         view.finderSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(text: String): Boolean {
                 presenter.onSearch(text)
@@ -53,8 +53,8 @@ class FinderFragment : Fragment(), FinderView {
 
         })
 
-        view.finderRecyclerView.layoutManager = LinearLayoutManager(this.context)
-        view.finderRecyclerView.setHasFixedSize(true)
+        view.favoritesRecyclerView.layoutManager = LinearLayoutManager(this.context)
+        view.favoritesRecyclerView.setHasFixedSize(true)
 
         return view
     }
