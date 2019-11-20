@@ -10,9 +10,13 @@ import com.example.myapplication.data.repository.remote.RetrofitRemoteRepository
 import com.example.myapplication.model.MovieDetail
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_finder_detail.*
+import kotlin.properties.Delegates
 
 
 class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
+
+    lateinit var presenter: FinderDetailPresenter
+    var id: Int by Delegates.notNull<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +26,15 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
         val remoteRepository: RemoteRepository =
             RetrofitRemoteRepository(RetrofitFactory.getMovieApi())
         val localRepository: LocalRepository = FavoriteMoviesLocalRepository(FavoritesFactory.get(this))
-        val presenter = FinderDetailPresenter(this, remoteRepository, localRepository)
+        presenter = FinderDetailPresenter(this, remoteRepository, localRepository)
 
-        val id = intent.extras?.getInt("id")
+        id = intent.extras?.getInt("id")!!
         presenter.onLoadDetail(id)
 
-        btnFav.setOnClickListener {
+
+        /*btnFav.setOnClickListener {
             presenter.onFavoritesClicked(id)
-        }
-
-
+        }*/
     }
 
     override fun setViewValues(general: MovieDetail, cast_crew: MovieDetail) {
@@ -48,8 +51,18 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
             .joinToString(separator = ", ")
     }
 
-    override fun setFavorite() {
-        btnFav.setImageResource(R.drawable.star_clicked)
-    }
+    override fun setFavorite(isTrue: Boolean) {
 
+        if (isTrue) {
+            btnFav.setImageResource(R.drawable.star_clicked)
+            btnFav.setOnClickListener {
+                presenter.disabledFavorite(id)
+            }
+        } else {
+            btnFav.setImageResource(R.drawable.star_noclicked)
+            btnFav.setOnClickListener {
+                presenter.enableFavorite(id)
+            }
+        }
+    }
 }

@@ -17,9 +17,15 @@ interface FavoritesDao {
     @Query("SELECT * FROM favorites ORDER by favorites.title")
     suspend fun orderByTitle(): List<Favorites>
 
+    @Query("DELETE FROM favorites")
+    suspend fun deleteAll(): Int
+
+    @Query("SELECT * FROM favorites WHERE favorites.id = :id")
+    suspend fun findMovie(id: Int): List<Favorites>
+
     @Insert
     suspend fun insert(vararg fav: Favorites)
 
     @Delete
-    suspend fun delete(fav: Favorites)
+    suspend fun deleteOne(fav: Favorites)
 }

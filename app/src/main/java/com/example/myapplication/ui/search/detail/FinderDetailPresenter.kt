@@ -20,25 +20,31 @@ class FinderDetailPresenter(
         CoroutineScope(Dispatchers.IO).launch {
             val responseGeneral = remoteRepository.getMovieDetail(id)
             val responseCastCrew = remoteRepository.getMovieCastAndCrew(id)
+            val movie = localRepository.findMovie(id!!)
+            val isFavorite = !movie.isEmpty()
             withContext(Dispatchers.Main) {
                 view.setViewValues(responseGeneral, responseCastCrew)
+                view.setFavorite(isFavorite)
 
             }
         }
     }
 
-    fun onFavoritesClicked(movieId: Int?) {
+    fun enableFavorite(movieId: Int?) {
         CoroutineScope(Dispatchers.IO).launch {
             val favorite = remoteRepository.getFavorite(movieId)
-            Log.e("ID" ,"${favorite.id}")
             localRepository.addFavorite(favorite)
-
-            withContext(Dispatchers.Main) {
-                view.setFavorite()
-            }
+            onLoadDetail(movieId)
         }
     }
 
+    fun disabledFavorite(movieId: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val favorite = remoteRepository.getFavorite(movieId)
+            localRepository.deleteOne(favorite)
+            onLoadDetail(movieId)
+        }
+    }
 }
 
 interface FinderDetailView {
@@ -48,6 +54,6 @@ interface FinderDetailView {
         cast_crew: MovieDetail
     )
 
-    fun setFavorite()
+    fun setFavorite(isTrue: Boolean)
 
 }

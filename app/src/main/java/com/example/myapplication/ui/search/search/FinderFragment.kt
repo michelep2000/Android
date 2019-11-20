@@ -41,6 +41,7 @@ class FinderFragment : Fragment(), FinderView {
         }
 
         view.favoritesRecyclerView.adapter = viewAdapter
+        view.finderSearch.isIconifiedByDefault = false
         view.finderSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(text: String): Boolean {
                 presenter.onSearch(text)

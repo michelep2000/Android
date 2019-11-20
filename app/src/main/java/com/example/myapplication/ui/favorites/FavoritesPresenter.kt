@@ -47,9 +47,13 @@ class FavoritesPresenter(
     }
 
     fun deleteClicked() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        CoroutineScope(Dispatchers.IO).launch {
+            localRepository.deleteAll()
+            withContext(Dispatchers.Main) {
+                onLoad()
+            }
+        }
     }
-
 }
 
 interface FavoritesView {

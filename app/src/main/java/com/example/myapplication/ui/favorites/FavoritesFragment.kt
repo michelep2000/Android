@@ -15,8 +15,8 @@ import android.view.*
 import com.example.myapplication.data.repository.remote.RemoteRepository
 import com.example.myapplication.data.repository.remote.RetrofitFactory
 import com.example.myapplication.data.repository.remote.RetrofitRemoteRepository
-import com.example.myapplication.model.MovieDetail
 import com.example.myapplication.ui.search.detail.FinderDetailActivity
+import kotlinx.android.synthetic.main.fragment_finder.*
 
 
 /**
@@ -89,6 +89,11 @@ class FavoritesFragment : Fragment(), FavoritesView {
         val intent = Intent(this.context, FinderDetailActivity::class.java)
         intent.putExtra("id", id)
         startActivity(intent)
+    }
+
+    override fun onResume() {
+        presenter.onLoad()
+        super.onResume()
     }
 
 
