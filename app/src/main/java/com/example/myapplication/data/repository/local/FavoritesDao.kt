@@ -11,6 +11,12 @@ interface FavoritesDao {
     @Query("SELECT * FROM favorites")
     suspend fun getAll(): List<Favorites>
 
+    @Query("SELECT * FROM favorites ORDER by favorites.created")
+    suspend fun orderByDate(): List<Favorites>
+
+    @Query("SELECT * FROM favorites ORDER by favorites.title")
+    suspend fun orderByTitle(): List<Favorites>
+
     @Insert
     suspend fun insert(vararg fav: Favorites)
 
