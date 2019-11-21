@@ -18,7 +18,7 @@ class FinderPresenter(
 
             val response = remoteRepository.searchMovies(term)
             withContext(Dispatchers.Main) {
-                if (!response.results.isEmpty()) {
+                if (response.results.isNotEmpty()) {
                     view.addMovies(response.results)
                 }
             }

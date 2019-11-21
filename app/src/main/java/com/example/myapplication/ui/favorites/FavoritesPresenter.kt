@@ -1,7 +1,7 @@
 package com.example.myapplication.ui.favorites
 
-import com.example.myapplication.data.repository.local.Favorites
 import com.example.myapplication.data.repository.local.LocalRepository
+import com.example.myapplication.model.Movie
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -54,6 +54,6 @@ class FavoritesPresenter(
 }
 
 interface FavoritesView {
-    fun setAdapter(favorites: List<Favorites>)
+    fun setAdapter(favorites: List<Movie>)
     fun openDetail(id: Int)
 }

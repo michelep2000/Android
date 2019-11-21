@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.data.repository.local.Favorites
 import com.example.myapplication.model.Movie
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_item.view.*
@@ -14,15 +13,9 @@ class MoviesAdapter(private val listener: (Movie) -> Unit) :
     RecyclerView.Adapter<MovieListViewHolder>() {
 
     private var movies = listOf<Movie>()
-    private var favorites = listOf<Favorites>()
 
     fun addMovies(newMovies: List<Movie>) {
         this.movies = newMovies
-        notifyDataSetChanged()
-    }
-
-    fun addFavorites(favorites: List<Favorites>) {
-        this.favorites = favorites
         notifyDataSetChanged()
     }
 
@@ -37,7 +30,7 @@ class MoviesAdapter(private val listener: (Movie) -> Unit) :
     }
 }
 
-class MovieListViewHolder private constructor(val view: ConstraintLayout) :
+class MovieListViewHolder private constructor(private val view: ConstraintLayout) :
     RecyclerView.ViewHolder(view) {
     companion object {
         fun from(parent: ViewGroup): MovieListViewHolder {

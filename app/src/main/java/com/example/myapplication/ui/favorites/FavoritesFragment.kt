@@ -7,15 +7,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.data.repository.local.FavoriteMoviesLocalRepository
-import com.example.myapplication.data.repository.local.Favorites
 import com.example.myapplication.data.repository.local.FavoritesFactory
 import com.example.myapplication.data.repository.local.LocalRepository
 import kotlinx.android.synthetic.main.fragment_favorites.view.*
 import android.view.*
-import com.example.myapplication.data.repository.remote.RemoteRepository
-import com.example.myapplication.data.repository.remote.RetrofitFactory
-import com.example.myapplication.data.repository.remote.RetrofitRemoteRepository
+import com.example.myapplication.model.Movie
 import com.example.myapplication.ui.search.detail.FinderDetailActivity
+import com.example.myapplication.ui.search.search.MoviesAdapter
 
 
 /**
@@ -23,7 +21,7 @@ import com.example.myapplication.ui.search.detail.FinderDetailActivity
  */
 class FavoritesFragment : Fragment(), FavoritesView {
 
-    private lateinit var viewAdapter: FavoritesAdapter
+    private lateinit var viewAdapter: MoviesAdapter
     private lateinit var presenter: FavoritesPresenter
 
     override fun onCreateView(
@@ -41,7 +39,7 @@ class FavoritesFragment : Fragment(), FavoritesView {
 
         presenter = FavoritesPresenter(this, localRepository)
 
-        viewAdapter = FavoritesAdapter {
+        viewAdapter = MoviesAdapter {
             presenter.onMovieClicked(it.id)
         }
         view.favoritesRecyclerView.adapter = viewAdapter
@@ -57,8 +55,8 @@ class FavoritesFragment : Fragment(), FavoritesView {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    override fun setAdapter(favorites: List<Favorites>) {
-        viewAdapter.addFavorites(favorites)
+    override fun setAdapter(favorites: List<Movie>) {
+        viewAdapter.addMovies(favorites)
 
     }
 
