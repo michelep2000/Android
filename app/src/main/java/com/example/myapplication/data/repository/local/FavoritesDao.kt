@@ -1,9 +1,6 @@
 package com.example.myapplication.data.repository.local
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface FavoritesDao {
@@ -23,7 +20,7 @@ interface FavoritesDao {
     @Query("SELECT * FROM favorites WHERE favorites.id = :id")
     suspend fun findMovie(id: Int): List<Favorites>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(vararg fav: Favorites)
 
     @Delete

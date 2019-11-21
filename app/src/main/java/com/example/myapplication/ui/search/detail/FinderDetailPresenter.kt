@@ -20,21 +20,21 @@ class FinderDetailPresenter(
         CoroutineScope(Dispatchers.IO).launch {
             val responseGeneral = remoteRepository.getMovieDetail(id)
             val responseCastCrew = remoteRepository.getMovieCastAndCrew(id)
-            val movie = localRepository.findMovie(id!!)
-            val isFavorite = !movie.isEmpty()
             withContext(Dispatchers.Main) {
                 view.setViewValues(responseGeneral, responseCastCrew)
-                view.setFavorite(isFavorite)
+                setStar(id)
 
             }
         }
     }
 
-    fun enableFavorite(movieId: Int?) {
+    fun enableFavorite(movieId: Int) {
         CoroutineScope(Dispatchers.IO).launch {
             val favorite = remoteRepository.getFavorite(movieId)
             localRepository.addFavorite(favorite)
-            onLoadDetail(movieId)
+            withContext(Dispatchers.Main) {
+                setStar(movieId)
+            }
         }
     }
 
@@ -42,7 +42,18 @@ class FinderDetailPresenter(
         CoroutineScope(Dispatchers.IO).launch {
             val favorite = remoteRepository.getFavorite(movieId)
             localRepository.deleteOne(favorite)
-            onLoadDetail(movieId)
+            withContext(Dispatchers.Main) {
+                setStar(movieId)
+            }
+        }
+    }
+
+    private fun setStar(movieId: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val isFavorite = localRepository.findMovie(movieId).isNotEmpty()
+            withContext(Dispatchers.Main) {
+                view.setFavorite(isFavorite)
+            }
         }
     }
 }

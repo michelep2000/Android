@@ -16,7 +16,6 @@ import com.example.myapplication.data.repository.remote.RemoteRepository
 import com.example.myapplication.data.repository.remote.RetrofitFactory
 import com.example.myapplication.data.repository.remote.RetrofitRemoteRepository
 import com.example.myapplication.ui.search.detail.FinderDetailActivity
-import kotlinx.android.synthetic.main.fragment_finder.*
 
 
 /**
@@ -40,10 +39,7 @@ class FavoritesFragment : Fragment(), FavoritesView {
         val localRepository: LocalRepository =
             FavoriteMoviesLocalRepository(FavoritesFactory.get(activity!!))
 
-        val remoteRepository: RemoteRepository =
-            RetrofitRemoteRepository(RetrofitFactory.getMovieApi())
-
-        presenter = FavoritesPresenter(this, localRepository, remoteRepository)
+        presenter = FavoritesPresenter(this, localRepository)
 
         viewAdapter = FavoritesAdapter {
             presenter.onMovieClicked(it.id)
@@ -95,7 +91,4 @@ class FavoritesFragment : Fragment(), FavoritesView {
         presenter.onLoad()
         super.onResume()
     }
-
-
-
 }

@@ -16,7 +16,7 @@ import kotlin.properties.Delegates
 class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
 
     lateinit var presenter: FinderDetailPresenter
-    var id: Int by Delegates.notNull<Int>()
+    var id: Int by Delegates.notNull()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,16 +25,12 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
 
         val remoteRepository: RemoteRepository =
             RetrofitRemoteRepository(RetrofitFactory.getMovieApi())
-        val localRepository: LocalRepository = FavoriteMoviesLocalRepository(FavoritesFactory.get(this))
+        val localRepository: LocalRepository =
+            FavoriteMoviesLocalRepository(FavoritesFactory.get(this))
         presenter = FinderDetailPresenter(this, remoteRepository, localRepository)
 
         id = intent.extras?.getInt("id")!!
         presenter.onLoadDetail(id)
-
-
-        /*btnFav.setOnClickListener {
-            presenter.onFavoritesClicked(id)
-        }*/
     }
 
     override fun setViewValues(general: MovieDetail, cast_crew: MovieDetail) {
@@ -45,14 +41,18 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
         txtRate.text = "${general.vote_average}"
         txtDescriptionMovie.text = general.overview
         txtGenreValue.text = general.genres.joinToString(separator = ", ") { it.name }
-        txtCastValue.text =
-            "${cast_crew.cast[0].name},${cast_crew.cast[1].name},${cast_crew.cast[2].name}"
+        if (cast_crew.cast.isEmpty()) {
+            txtCastValue.text = "Is not posible to show the cast at this time."
+        } else {
+            txtCastValue.text =
+                "${cast_crew.cast[0].name},${cast_crew.cast[1].name},${cast_crew.cast[2].name}"
+        }
+
         txtDirectorValue.text = cast_crew.crew.filter { it.job == "Director" }.map { it.name }
             .joinToString(separator = ", ")
     }
 
     override fun setFavorite(isTrue: Boolean) {
-
         if (isTrue) {
             btnFav.setImageResource(R.drawable.star_clicked)
             btnFav.setOnClickListener {
