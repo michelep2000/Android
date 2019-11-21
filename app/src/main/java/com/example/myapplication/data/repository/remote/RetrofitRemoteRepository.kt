@@ -5,7 +5,7 @@ import com.example.myapplication.model.Movie
 import com.example.myapplication.model.MovieDetail
 import com.example.myapplication.model.Result
 
-class RetrofitRemoteRepository(val movieApi: MovieApi) : RemoteRepository {
+class RetrofitRemoteRepository(private val movieApi: MovieApi) : RemoteRepository {
 
     override suspend fun searchMovies(term: String): Result {
         val response = movieApi.searchMovies(term)

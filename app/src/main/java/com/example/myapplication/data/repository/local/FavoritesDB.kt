@@ -7,9 +7,9 @@ import androidx.room.RoomDatabase
 import com.example.myapplication.model.Movie
 
 
-@Database(entities = arrayOf(Movie::class), version = 1)
+@Database(entities = [Movie::class], version = 1)
 abstract class FavoritesDB : RoomDatabase() {
-    abstract fun favsDao(): FavoritesDao
+    abstract fun favDao(): FavoritesDao
 }
 
 object FavoritesFactory {

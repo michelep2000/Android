@@ -51,7 +51,7 @@ class FavoritesFragment : Fragment(), FavoritesView {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater!!.inflate(R.menu.fav_items, menu)
+        inflater.inflate(R.menu.fav_items, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 

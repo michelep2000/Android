@@ -5,31 +5,31 @@ import com.example.myapplication.model.Movie
 class FavoriteMoviesLocalRepository(private val db: FavoritesDB) : LocalRepository {
 
     override suspend fun findMovie(id: Int): List<Movie> {
-        return db.favsDao().findMovie(id)
+        return db.favDao().findMovie(id)
     }
 
     override suspend fun deleteOne(movie: Movie){
-        return db.favsDao().deleteOne(movie)
+        return db.favDao().deleteOne(movie)
     }
 
     override suspend fun deleteAll(): Int {
-        return db.favsDao().deleteAll()
+        return db.favDao().deleteAll()
     }
 
     override suspend fun orderByTitle(): List<Movie> {
-        return db.favsDao().orderByTitle()
+        return db.favDao().orderByTitle()
     }
 
     override suspend fun orderByDate(): List<Movie> {
-        return db.favsDao().orderByDate()
+        return db.favDao().orderByDate()
     }
 
     override suspend fun getAll(): List<Movie> {
-        return db.favsDao().getAll()
+        return db.favDao().getAll()
     }
 
     override suspend fun addFavorite(movie: Movie) {
-        return db.favsDao().insert(movie)
+        return db.favDao().insert(movie)
     }
 
 

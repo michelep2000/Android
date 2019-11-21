@@ -25,7 +25,6 @@ class ProfileFragment : Fragment() {
         view.txtBirthdate.text = "28/09/2000"
         view.txtDescription.setText(R.string.description)
         view.imageView.setImageResource(R.drawable.boy)
-        //view.image?.let { myImageView.setImageResource(image)} ?: return // para desempaquetar
         return view
     }
 

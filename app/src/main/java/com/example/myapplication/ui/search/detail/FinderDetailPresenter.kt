@@ -1,6 +1,5 @@
 package com.example.myapplication.ui.search.detail
 
-import android.util.Log
 import com.example.myapplication.data.repository.local.LocalRepository
 import com.example.myapplication.data.repository.remote.RemoteRepository
 import com.example.myapplication.model.MovieDetail

@@ -21,7 +21,6 @@ class FavoritesPresenter(
     }
 
     fun onMovieClicked(id: Int) {
-        if (id == null) return
         view.openDetail(id)
     }
 
