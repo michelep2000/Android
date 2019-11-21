@@ -31,7 +31,6 @@ class FavoritesFragment : Fragment(), FavoritesView {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_favorites, container, false)
-
         setHasOptionsMenu(true)
 
         val localRepository: LocalRepository =
