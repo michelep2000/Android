@@ -32,7 +32,7 @@ class FinderDetailPresenter(
             val favorite = remoteRepository.getFavorite(movieId)
             localRepository.addFavorite(favorite)
             withContext(Dispatchers.Main) {
-                setStar(movieId)
+                view.setFavorite(true)
             }
         }
     }

@@ -21,7 +21,7 @@ interface FavoritesDao {
     @Query("SELECT * FROM movie WHERE movie.id = :id")
     suspend fun findMovie(id: Int): List<Movie>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun insert(vararg fav: Movie)
 
     @Delete

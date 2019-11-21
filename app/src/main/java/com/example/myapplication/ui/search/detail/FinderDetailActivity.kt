@@ -53,14 +53,17 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
     }
 
     override fun setFavorite(isTrue: Boolean) {
+        btnFav.isEnabled = true
         if (isTrue) {
             btnFav.setImageResource(R.drawable.star_clicked)
             btnFav.setOnClickListener {
+                btnFav.isEnabled = false
                 presenter.disabledFavorite(id)
             }
         } else {
             btnFav.setImageResource(R.drawable.star_noclicked)
             btnFav.setOnClickListener {
+                btnFav.isEnabled = false
                 presenter.enableFavorite(id)
             }
         }
