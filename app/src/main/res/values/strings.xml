@@ -16,19 +16,16 @@
     <string name="movieTitle">movie title</string>
     <string name="movieYear">Year:</string>
     <string name="genre">Genre:</string>
-    <string name="movieYearValue">1996</string>
-    <string name="txtGenreValue">Thriller</string>
+    <string name="movieYearValue"></string>
+    <string name="txtGenreValue"></string>
     <string name="movieImg">movie img</string>
-    <string name="movieDescription">Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi turpis, sed nibh litora nisi proin eu curabitur quis, cum congue dis sagittis elementum morbi magna natoque. Ultricies dui pellentesque blandit auctor semper quisque fames maecenas porttitor dignissim senectus erat, justo ligula mus montes dictumst nostra primis eros sociis ornare habitasse eget, nullam dis nibh mi facilisi tellus nam mauris tincidunt per condimentum. Felis vitae semper luctus rhoncus etiam dapibus risus, curae habitant fames laoreet cursus fringilla morbi, eu nascetur facilisi scelerisque donec bibendum.</string>
+    <string name="movieDescription"></string>
     <string name="ImgAdd">add</string>
     <string name="imgFavorites">favorites</string>
     <string name="imgShare">share</string>
     <string name="btnMovie">Movie</string>
-    <string name="originalMovieTitle">original title</string>
+    <string name="originalMovieTitle"></string>
     <string name="releaseMovieDate">Release Date</string>
-    <string name="movieRate">Rate</string>
-    <string name="releaseMovieDateValue">release date value</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

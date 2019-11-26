@@ -2,6 +2,9 @@ package com.example.myapplication.ui.search.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import com.example.myapplication.R
 import com.example.myapplication.data.repository.local.*
 import com.example.myapplication.data.repository.remote.RemoteRepository
@@ -31,6 +34,8 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
 
         id = intent.extras?.getInt("id")!!
         presenter.onLoadDetail(id)
+
+
     }
 
     override fun setViewValues(general: MovieDetail, cast_crew: MovieDetail) {
@@ -41,7 +46,7 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
         txtRate.text = "${general.vote_average}"
         txtDescriptionMovie.text = general.overview
         txtGenreValue.text = general.genres.joinToString(separator = ", ") { it.name }
-        if (cast_crew.cast.isEmpty()) {
+        if (cast_crew.cast.size < 3) {
             txtCastValue.text = "Is not posible to show the cast at this time."
         } else {
             txtCastValue.text =
@@ -50,6 +55,14 @@ class FinderDetailActivity : AppCompatActivity(), FinderDetailView {
 
         txtDirectorValue.text = cast_crew.crew.filter { it.job == "Director" }.map { it.name }
             .joinToString(separator = ", ")
+
+        txtYear.isInvisible = false
+        txtGenre.isInvisible = false
+        txtDirector.isInvisible = false
+        txtCast.isInvisible = false
+        btnFav.isInvisible = false
+        progressBar.isGone = true
+
     }
 
     override fun setFavorite(isTrue: Boolean) {
