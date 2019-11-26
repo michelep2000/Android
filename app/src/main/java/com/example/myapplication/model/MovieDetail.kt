@@ -1,7 +1,5 @@
 package com.example.myapplication.model
 
-import java.util.*
-
 data class MovieDetail(
     val backdrop_path: String,
     val title: String,

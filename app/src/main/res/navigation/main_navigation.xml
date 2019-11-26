@@ -6,16 +6,16 @@
     app:startDestination="@id/find_fragment">
     <fragment
         android:id="@+id/movieList_fragment"
-        android:name="com.example.myapplication.ui.MovieListFragment"
+        android:name="com.example.myapplication.ui.favorites.FavoritesFragment"
         android:label="Favorites"
-        tools:layout="@layout/fragment_movie_list" />
+        tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/profile_fragment"
-        android:name="com.example.myapplication.ui.ProfileFragment"
+        android:name="com.example.myapplication.ui.profile.ProfileFragment"
         android:label="ProfileFragment" />
     <fragment
         android:id="@+id/find_fragment"
-        android:name="com.example.myapplication.ui.movieSearch.FinderFragment"
+        android:name="com.example.myapplication.ui.search.search.FinderFragment"
         android:label="Find"
         tools:layout="@layout/fragment_finder" />
 </navigation>

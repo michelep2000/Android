@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <fragment
         android:id="@+id/nav_host_fragment"
@@ -24,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#212121"
-        app:itemIconTint="@color/colorPrimary"
+        app:itemIconTint="@color/colorItemsNav"
         app:itemTextColor="#FFF5D7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

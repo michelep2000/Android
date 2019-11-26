@@ -1,8 +1,18 @@
 package com.example.myapplication.model
 
-data class Movie(val img: String, val title: String, val year: String, val genre: String, val description: String)
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-data class Movie2(val id: Int, val poster_path: String, val title: String, val original_title: String, val release_date: String, val vote_average: Double)
+@Entity
+data class Movie(
+    @PrimaryKey val id: Int,
+    val poster_path: String,
+    val title: String,
+    val original_title: String,
+    val release_date: String,
+    val vote_average: Double,
+    val created: Long? = System.currentTimeMillis()
+)
 
-data class Result(val results: List<Movie2>)
+data class Result(val results: List<Movie>)
 
