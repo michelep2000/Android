@@ -31,9 +31,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="8dp"
-            android:contentDescription="@string/movieTitle"
             android:fontFamily="sans-serif-condensed-light"
-            android:text="@string/movieTitle"
             android:textColor="#FFF5D7"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@id/txtRate"
@@ -49,6 +47,7 @@
             android:text="@string/movieYear"
             android:textColor="#FFF5D7"
             android:textSize="18sp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/movieTitle"
             app:layout_constraintTop_toBottomOf="@+id/movieTitle" />
 
@@ -61,6 +60,7 @@
             android:text="@string/genre"
             android:textColor="#FFF5D7"
             android:textSize="18sp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/txtYear"
             app:layout_constraintTop_toBottomOf="@+id/txtYear" />
 
@@ -73,7 +73,6 @@
             android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif-condensed-light"
             android:maxLines="1"
-            android:text="@string/movieYearValue"
             android:textColor="#FFF5D7"
             android:textSize="14sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txtYear"
@@ -95,7 +94,6 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:fontFamily="sans-serif-condensed-light"
-            android:text="@string/movieDescription"
             android:textColor="#FFF5D7"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -109,6 +107,7 @@
             android:layout_height="32dp"
             android:layout_marginTop="32dp"
             android:contentDescription="@string/imgFavorites"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +119,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed-light"
-            android:text="@string/movieRate"
             android:textColor="#FFE700"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -136,6 +134,7 @@
             android:text="Director"
             android:textColor="#FFF5D7"
             android:textSize="18sp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/txtGenre"
             app:layout_constraintTop_toBottomOf="@+id/txtGenre" />
 
@@ -147,7 +146,6 @@
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed-light"
             android:maxLines="1"
-            android:text="Jason"
             android:textColor="#FFF5D7"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -164,7 +162,6 @@
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed-light"
             android:maxLines="1"
-            android:text="@string/txtGenreValue"
             android:textColor="#FFF5D7"
             android:textSize="14sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/txtGenre"
@@ -181,6 +178,7 @@
             android:text="Cast"
             android:textColor="#FFF5D7"
             android:textSize="18sp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="@+id/txtDirector"
             app:layout_constraintTop_toBottomOf="@+id/txtDirector" />
 
@@ -192,13 +190,24 @@
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed-light"
             android:maxLines="1"
-            android:text="robin, luffy , zoro"
             android:textColor="#FFF5D7"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/txtCast"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txtDirectorValue" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/circle"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.fragment_finder.view.*
 import android.content.Intent
+import androidx.core.view.isVisible
 import com.example.myapplication.data.repository.remote.RemoteRepository
 import com.example.myapplication.data.repository.remote.RetrofitFactory
 import com.example.myapplication.data.repository.remote.RetrofitRemoteRepository
 import com.example.myapplication.model.Movie
 import com.example.myapplication.ui.search.detail.FinderDetailActivity
+import kotlinx.android.synthetic.main.activity_finder_detail.*
 
 
 /**
